@@ -1,5 +1,5 @@
 import { dbConnect } from "../db/connect.js";
-import { User } from "../db/users.js";
+import { User } from "../models/users.js";
 
 export async function getHighscores(req, res) {
   return res.json([
