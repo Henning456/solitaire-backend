@@ -1,5 +1,5 @@
 import { dbConnect } from "../db/connect.js";
-import { Dummy } from "../db/Dummy.js";
+import { User } from "../db/users.js";
 
 export async function getHighscores(req, res) {
   return res.json([
@@ -8,11 +8,11 @@ export async function getHighscores(req, res) {
   ]);
 }
 
-export async function getDummies(req, res) {
+export async function getUsers(req, res) {
   try {
     await dbConnect();
-    const dummies = await Dummy.find();
-    return res.json(dummies);
+    const users = await User.find();
+    return res.json(users);
   } catch (err) {
     return res.status(500).json({ msg: "Server error" });
   }
